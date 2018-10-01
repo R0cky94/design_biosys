@@ -4,7 +4,7 @@ import {View,Text} from 'react-native';
 class Activity extends Component {
     render() {
         return (
-            <View>
+            <View style={{backgroundColor:"#6274dd"}}>
                 <Text>WELCOME</Text>
                 <Text>WELCOME</Text>
                 <Text>WELCOME</Text>

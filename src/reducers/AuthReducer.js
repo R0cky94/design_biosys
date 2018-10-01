@@ -6,9 +6,9 @@ export default (state = INITIAL_STATE, action) => {
 
     switch (action.type) {
         case EMAILCHANGED:
-            return {...state, username: action.payload};
+            return {...state, username: action.emailValue};
         case PASSWORD_CHANGED:
-            return {...state,password:action.payload};
+            return {...state,password:action.passwordValue};
         case LOGIN_USER:
             return {...state, loading: true, error: ''};
         case LOGIN_USER_SUCCESS:
@@ -16,7 +16,7 @@ export default (state = INITIAL_STATE, action) => {
         case LOGIN_USER_FAIL:
             return {...state, error: 'Authentication Failed', password: '', loading: false};
         default:
-            return state
+            return { ...state }
 
     }
 };

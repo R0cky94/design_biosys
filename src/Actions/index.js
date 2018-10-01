@@ -5,14 +5,14 @@ import {Actions} from 'react-native-router-flux';
 export const emailChanged = (text) => {
     return {
         type: EMAILCHANGED,
-        payload: text
+        emailValue: text
     }
 };
 export const passwordChanged = (text) => {
     return {
         type: PASSWORD_CHANGED,
-        payload: text
-    }
+        passwordValue: text
+}
 };
 
 export const loginUser = ({username, password}) => {
@@ -20,11 +20,11 @@ export const loginUser = ({username, password}) => {
         dispatch({type: LOGIN_USER});
 
         let apiBaseUrl = "http://13.127.126.101:8000/";
-        let payload = {
+        let userData = {
             username: username,
             password: password
         };
-        axios.post(apiBaseUrl + "api/userLogin/", payload)
+        axios.post(apiBaseUrl + "api/userLogin/", userData)
             .then(response => loginUserSuccess(dispatch, response))
             .catch(() => loginUserFail(dispatch));
 

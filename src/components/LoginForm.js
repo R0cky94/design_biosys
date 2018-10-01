@@ -39,11 +39,10 @@ class LoginForm extends Component {
     render() {
         return (
             <Card>
-                <CardSection>
+                <CardSection >
                     <Input
                         label={'Username'}
                         placeHolder={'enter username'}
-                        value={this.state.username}
                         onChangeText={this.onEmailChange.bind(this)}
                     />
                 </CardSection>
@@ -52,7 +51,6 @@ class LoginForm extends Component {
                     <Input
                         label={'Password'}
                         placeHolder={'enter password'}
-                        value={this.state.password}
                         onChangeText={this.onPasswordChange.bind(this)}
                     />
                 </CardSection>
@@ -74,16 +72,19 @@ const styles = StyleSheet.create({
         fontSize: 18,
         alignSelf: 'center',
         color: 'red'
+    },
+    cardSectionStyle:{
+        marginTop: 30
     }
 });
 
 function mapStateToProps(state) {
     return {
-        username: get(state.AuthReducer, "username"),
-        password: get(state.AuthReducer, "password"),
-        loading: get(state.AuthReducer, "loading"),
-        error: get(state.AuthReducer, "error"),
-        user: get(state.AuthReducer, "user")
+        username: state.AuthReducer.username,
+        password: state.AuthReducer.password,
+        loading: state.AuthReducer.loading,
+        error: state.AuthReducer.error,
+        user: state.AuthReducer.user
     };
 }
 
